@@ -25,7 +25,7 @@ const Product = ({ product }: ProductProps) => {
 			</button>
 			{details && <div>
 				<p>{ product.description }</p>
-				<p>Rate: <span style={{fontWeight: 600}}>{ product.rating.rate }</span></p>
+				<p>Rate: <span style={{fontWeight: 600}}>{ product?.rating?.rate }</span></p>
 			</div>
 			
 			}

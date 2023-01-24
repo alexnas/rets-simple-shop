@@ -15,9 +15,11 @@ const productData: IProduct = {
 		}
 }
 
-type Props = {}
+interface CreateProductProps {
+	onCreate: (product: IProduct) => void
+}
 
-const CreateProduct = (props: Props) => {
+const CreateProduct = ({onCreate}: CreateProductProps) => {
 	const [value, setValue] = useState('')
 	const [error, setError] = useState('')
 
@@ -31,6 +33,8 @@ const CreateProduct = (props: Props) => {
 
 		productData.title = value
 		const response = await axios.post<IProduct>('https://fakestoreapi.com/products', productData)
+
+		onCreate(response.data)
 	}
 
 
